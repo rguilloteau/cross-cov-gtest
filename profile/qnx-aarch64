@@ -1,0 +1,9 @@
+# Common profile for QNX
+include(qnx)
+
+[settings]
+# Cross-build for QNX Neutrino aarch64
+arch=aarch64
+
+[env]
+CONAN_CMAKE_TOOLCHAIN_FILE=$PROFILE_DIR/../cmake/qnx-aarch64.cmake

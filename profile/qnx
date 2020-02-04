@@ -1,0 +1,22 @@
+[settings]
+# Cross-build for QNX Neutrino
+os=Neutrino
+os.version=7.0
+
+# Build in Ubuntu Linux
+os_build=Linux
+arch_build=x86_64
+
+# Adjust to the qcc version of the system
+compiler=qcc
+compiler.version=5.4
+compiler.libcxx=cxx
+
+build_type=Release
+
+[options]
+[build_requires]
+
+[env]
+CC=qcc
+CXX=q++

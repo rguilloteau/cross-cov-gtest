@@ -1,0 +1,9 @@
+# Common profile for QNX
+include(qnx)
+
+[settings]
+# Cross-build for QNX Neutrino armv7
+arch=armv7
+
+[env]
+CONAN_CMAKE_TOOLCHAIN_FILE=$PROFILE_DIR/../cmake/qnx-armv7.cmake
