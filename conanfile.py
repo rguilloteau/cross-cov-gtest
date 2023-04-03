@@ -37,12 +37,7 @@ class TemplateRepo(ConanFile):
     def package(self):
         cmake = CMake(self)
         cmake.install()
-        # Install executable
-        self.copy("bin/*")
-        # Install config
-        self.copy("config/*")
-        # Install libraries
-        self.copy("lib/*")
+        self.copy("*.gcno", dst="lib", keep_path=False)
 
     def package_info(self):
         self.cpp_info.includedirs = ["include"]

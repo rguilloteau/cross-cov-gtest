@@ -1,6 +1,6 @@
-#include "greatestof3.h"
+#include <greatestof3.h>
 
-#include "gtest/gtest.h"
+#include <gtest/gtest.h>
 
 TEST(GreaterTest,AisGreater)
 {

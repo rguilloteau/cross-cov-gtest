@@ -16,7 +16,7 @@ conan_basic_setup(TARGETS)
 include_directories(${PROJECT_SOURCE_DIR}/src)
 
 # Headers live in include
-include_directories(include)
+include_directories(src/include)
 
 message(STATUS "\n\n========= Build Options ===========")
 message(STATUS "Build Type: ${CMAKE_BUILD_TYPE}")
