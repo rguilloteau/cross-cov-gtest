@@ -18,7 +18,5 @@ include_directories(${PROJECT_SOURCE_DIR}/src)
 # Headers live in include
 include_directories(include)
 
-message(STATUS "\n\n========= Build Options ===========")
-message(STATUS "Build Type: ${CMAKE_BUILD_TYPE}")
 add_subdirectory(src)
-message(STATUS "\n\n-----------------------------------")
+add_subdirectory(test_folder)
