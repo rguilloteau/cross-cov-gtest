@@ -1,9 +1,0 @@
-# Common profile for QNX
-include(qnx)
-
-[settings]
-# Cross-build for QNX Neutrino x86_64
-arch=x86_64
-
-[env]
-CONAN_CMAKE_TOOLCHAIN_FILE=$PROFILE_DIR/../cmake/qnx-x86_64.cmake
