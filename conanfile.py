@@ -10,7 +10,7 @@ class TemplateRepo(ConanFile):
     exports_sources = 'CMakeLists.txt', 'cmake/*', 'src/*', 'include/*'
     # Fill in with your gtest conan package
     build_requires = (
-        "gtest/1.8.1@av/stable",
+        "gtest/cci.20210126",
     )
 
     options = {
@@ -54,17 +54,3 @@ class TemplateRepo(ConanFile):
         self.env_info.PATH.append(os.path.join(self.package_folder, "bin"))
         for libpath in self.deps_cpp_info.lib_paths:
             self.env_info.LD_LIBRARY_PATH.append(libpath)
-
-    def imports(self):
-        import_dir = os.getenv("CONAN_IMPORT_PATH", ".")
-        bin_dir = os.path.join(import_dir, "bin")
-        config_dir = os.path.join(import_dir, "config")
-        lib_dir = os.path.join(import_dir, "lib")
-        # Copy from external libraries
-        self.copy("*.a*", dst=lib_dir, src="lib/", keep_path=False)
-        self.copy("*.so*", dst=lib_dir, src="lib/", keep_path=False)
-        self.copy("*.so*", dst=lib_dir, src="lib64/", keep_path=False)
-        self.copy("*.xml*", dst=lib_dir, src="lib/", keep_path=False)
-        # Copy from aptivware-core package
-        self.copy("*", dst=bin_dir, src="bin/", root_package="aptivware-core", keep_path=False)
-        self.copy("*", dst=lib_dir, src="lib/", root_package="aptivware-core", keep_path=True)
