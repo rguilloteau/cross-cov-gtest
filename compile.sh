@@ -1,0 +1,7 @@
+mkdir build && cd build
+conan install ..
+conan build ..
+mv src/CMakeFiles/greatestof3.dir/greatestof3.cpp.gcno test_folder/CMakeFiles/test.dir/main_test.cpp.gcno bin/
+cd bin
+GCOV_PREFIX_STRIP=9999 ./test
+gcovr -r ../.. --exclude-unreachable-branches --print-summary --html-details coverage.html
