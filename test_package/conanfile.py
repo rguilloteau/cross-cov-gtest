@@ -7,6 +7,9 @@ class HelloTestConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
     generators = {"pkg_config", "PkgConfigDeps", "cmake"}
     requires = ["gtest/cci.20210126"]
+    options = {
+        "coverage": [True, False]}
+    default_options = {"coverage": False}
 
     def imports(self):
         self.copy("*.gcno", dst="bin", src="lib")
@@ -16,7 +19,10 @@ class HelloTestConan(ConanFile):
         self.cmake.configure()
         self.cmake.build()
 
-
     def test(self):
         self.cmake.parallel = False
-        self.cmake.test()
+        if self.options.coverage:
+            self.cmake.build(target="cov")
+        else:
+            self.cmake.test()
+
